@@ -56,7 +56,7 @@ function M.cursor(name, palette)
 end
 
 function M.cursorline(name, palette)
-	local darken = require("sandstorm.utils.colors").darken
+	local darken = require("cyberpunk.utils.colors").darken
 
 	return {
 		name = name,

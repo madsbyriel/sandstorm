@@ -1,1 +1,1 @@
-return require "sandstorm.utils.lualine" "macchiato"
+return require "cyberpunk.utils.lualine" "macchiato"

@@ -1,5 +1,5 @@
 local M = {}
-local B = bit or bit32 or require "sandstorm.lib.vim.bit"
+local B = bit or bit32 or require "cyberpunk.lib.vim.bit"
 
 local hash_str = function(str) -- djb2, https://theartincode.stanis.me/008-djb2/
 	local hash = 5381
@@ -18,7 +18,7 @@ function M.hash(v) -- Xor hashing: https://codeforces.com/blog/entry/85900
 		end
 		return hash
 	elseif t == "function" then
-		return M.hash(v(require("sandstorm.palettes").get_palette()))
+		return M.hash(v(require("cyberpunk.palettes").get_palette()))
 	end
 	return tostring(v)
 end

@@ -1,8 +1,8 @@
-local darken = require("sandstorm.utils.colors").darken
-local palette = require("sandstorm.palettes").get_palette "frappe"
+local darken = require("cyberpunk.utils.colors").darken
+local palette = require("cyberpunk.palettes").get_palette "frappe"
 
 return {
-	name = "sandstorm-frappe-cursorline",
+	name = "cyberpunk-frappe-cursorline",
 	static = {
 		winhl = {
 			inactive = {

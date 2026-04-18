@@ -10,7 +10,7 @@
 ---@class CatppuccinOptions
 -- Changes the flavor based on the background. See `:h background` for more info.
 ---@field background CtpBackground?
--- By default sandstorm writes the compiled results into the system's cache directory.
+-- By default cyberpunk writes the compiled results into the system's cache directory.
 -- You can change the cache dir by changing this value.
 ---@field compile_path string?
 -- Whether to enable transparency.
@@ -129,11 +129,11 @@
 -- ```lua
 -- require("barbecue").setup {
 -- -- valid options:
--- -- "sandstorm-latte"
--- -- "sandstorm-frappe"
--- -- "sandstorm-macchiato"
--- -- "sandstorm-mocha"
---   theme = "sandstorm",
+-- -- "cyberpunk-latte"
+-- -- "cyberpunk-frappe"
+-- -- "cyberpunk-macchiato"
+-- -- "cyberpunk-mocha"
+--   theme = "cyberpunk",
 -- }
 ---```
 ---@field barbecue CtpIntegrationBarbecue | boolean?
@@ -191,7 +191,7 @@
 -- ```lua
 -- require("lspsaga").setup {
 --    ui = {
---        kind = require("sandstorm.groups.integrations.lsp_saga").custom_kind(),
+--        kind = require("cyberpunk.groups.integrations.lsp_saga").custom_kind(),
 --    },
 -- }
 -- ```

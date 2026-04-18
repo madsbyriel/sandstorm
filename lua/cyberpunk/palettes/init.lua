@@ -1,9 +1,9 @@
 local M = {}
 
 function M.get_palette(flavour)
-	local flvr = flavour or require("sandstorm").flavour or vim.g.sandstorm_flavour or "mocha"
-	local _, palette = pcall(require, "sandstorm.palettes." .. flvr)
-	local O = require("sandstorm").options
+	local flvr = flavour or require("cyberpunk").flavour or vim.g.cyberpunk_flavour or "mocha"
+	local _, palette = pcall(require, "cyberpunk.palettes." .. flvr)
+	local O = require("cyberpunk").options
 	local ans = vim.tbl_deep_extend("keep", O.color_overrides.all or {}, O.color_overrides[flvr] or {}, palette or {})
 
 	--[[ 

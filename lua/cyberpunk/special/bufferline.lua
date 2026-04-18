@@ -1,12 +1,12 @@
 local M = {}
 
-local ctp = require "sandstorm"
+local ctp = require "cyberpunk"
 local O = ctp.options
 
 function M.get_theme(user_config)
 	user_config = user_config or {}
 	return function()
-		local C = require("sandstorm.palettes").get_palette()
+		local C = require("cyberpunk.palettes").get_palette()
 		local transparent_background = O.transparent_background
 		local bg_highlight = (transparent_background and O.dim_inactive.enabled and C.dim)
 			or (transparent_background and "NONE")

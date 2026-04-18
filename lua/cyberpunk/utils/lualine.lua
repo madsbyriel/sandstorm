@@ -10,9 +10,9 @@ local function get_colors(colors_override, colors)
 	end
 end
 return function(flavour)
-	flavour = flavour or require("sandstorm").flavour or vim.g.sandstorm_flavour or "mocha"
-	local C = require("sandstorm.palettes").get_palette(flavour)
-	local O = require("sandstorm").options
+	flavour = flavour or require("cyberpunk").flavour or vim.g.cyberpunk_flavour or "mocha"
+	local C = require("cyberpunk.palettes").get_palette(flavour)
+	local O = require("cyberpunk").options
 
 	local transparent_bg = O.transparent_background and "NONE" or C.mantle
 	local default_colors = {

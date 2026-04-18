@@ -1,1 +1,1 @@
-return require "sandstorm.utils.lualine" "latte"
+return require "cyberpunk.utils.lualine" "latte"

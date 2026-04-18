@@ -1,1 +1,1 @@
-return require "sandstorm.utils.barbecue" "frappe"
+return require "cyberpunk.utils.barbecue" "frappe"

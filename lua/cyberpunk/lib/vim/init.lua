@@ -1,5 +1,5 @@
 -- TODO: private _G.vim
-vim.command [[command! CatppuccinCompile lua require('sandstorm').compile() print("Catppuccin (info): compiled cache!")]]
+vim.command [[command! CatppuccinCompile lua require('cyberpunk').compile() print("Catppuccin (info): compiled cache!")]]
 
 vim.o = setmetatable({}, {
 	__index = function(_, k)
