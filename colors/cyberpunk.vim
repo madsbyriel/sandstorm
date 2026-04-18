@@ -1,1 +1,1 @@
-lua require("cyberpunk").load "mocha"
+lua require("sandstorm").load "mocha"
