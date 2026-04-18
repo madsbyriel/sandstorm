@@ -1,25 +1,10 @@
--- @define-color black #000000;
--- @define-color red #c5003c;
--- @define-color dark_red #880425;
--- @define-color light_yellow #ffff80;
--- @define-color yellow #ffff00; #efff00;
--- @define-color aqua #55ead4;
--- @define-color green #00ff9f;
--- @define-color light_blue #00b8ff;
--- @define-color dark_blue #001eff;
--- @define-color dark_pink #bd00ff;
--- @define-color pink #d600ff;
-
--- variables & methods:
--- darkness ^^^
--- method calls     - f2bd1f (bright orange)
--- fields           - becc00 (mid yellow)
--- variable names   - efff00 (bright yellow)
--- param names      - 8f9900 (dark yellow)
-
--- class name and keyword should complement each other
--- class: 16e9cd (lightblue), keywords: e8174f (pink)
--- maybe pink/lightblue?
+-- @define-color dark_sand #4e2918;
+-- @define-color light_sand #e1b39d;
+-- @define-color medium_sand #c3673c;
+-- @define-color yellow #ffff00; # for debugging!
+-- @define-color dark_red #cc0000;
+-- @define-color dark_green #336600;
+-- @define-color teal #008080;
 
 return {
 	blue = "#f2bd1f",   -- method calls, first words in bash fx, directories in treeview
@@ -46,9 +31,9 @@ return {
 	surface2 = "#585b70",
 	surface1 = "#8f9900", -- line numbers
 	surface0 = "#313244", -- also some part of the luabar leftside, rightmost part
-	base = "#000000",  -- background -done
-	mantle = "#1a1a1a", -- file view background, also text in luabar -done
-	crust = "#11111b",
+	base = "#e1b39d",  -- background
+	mantle = "#c3673c", -- file view background, also text in luabar -done
+	crust = "#000000",
 
 	flamingo = "#f2cdcd",
 	pink = "#f5c2e7",
