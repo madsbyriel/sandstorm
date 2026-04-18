@@ -1,12 +1,12 @@
-local path_sep = require("cyberpunk").path_sep
-local O = require("cyberpunk").options
+local path_sep = require("sandstorm").path_sep
+local O = require("sandstorm").options
 local M = {}
 
 -- Reference: https://github.com/EdenEast/nightfox.nvim
 local fmt = string.format
 
 function M.compile(flavour)
-	local theme = require("cyberpunk.lib.mapper").apply(flavour)
+	local theme = require("sandstorm.lib.mapper").apply(flavour)
 	local lines = {
 		string.format(
 			[=[
@@ -17,7 +17,7 @@ if exists("colors_name")
 endif
 set termguicolors
 set background=%s
-let g:colors_name = "cyberpunk-%s"]=],
+let g:colors_name = "sandstorm-%s"]=],
 			(flavour == "latte" and "light" or "dark"),
 			flavour
 		),
@@ -66,7 +66,7 @@ let g:colors_name = "cyberpunk-%s"]=],
 	if vim.fn.isdirectory(O.compile_path) == 0 then vim.fn.mkdir(O.compile_path, "p") end
 	local ls = loadstring or load
 
-	if vim.g.cyberpunk_debug then -- Debugging purpose
+	if vim.g.sandstorm_debug then -- Debugging purpose
 		local deb = io.open(O.compile_path .. path_sep .. flavour .. ".lua", "wb")
 		if deb then
 			deb:write(table.concat(lines, "\n"))
@@ -76,9 +76,9 @@ let g:colors_name = "cyberpunk-%s"]=],
 
 	local f = ls(table.concat(lines, "\n"))
 	if not f then
-		local err_path = (path_sep == "/" and "/tmp" or os.getenv "TMP") .. "/cyberpunk_error.lua"
+		local err_path = (path_sep == "/" and "/tmp" or os.getenv "TMP") .. "/sandstorm_error.lua"
 		print(string.format(
-			[[Catppuccin (error): Most likely some mistake made in your cyberpunk config
+			[[Catppuccin (error): Most likely some mistake made in your sandstorm config
 You can open %s for debugging
 
 If you think this is a bug, kindly open an issue and attach %s file

@@ -1,8 +1,8 @@
-local lighten = require("cyberpunk.utils.colors").lighten
-local palette = require("cyberpunk.palettes").get_palette "latte"
+local lighten = require("sandstorm.utils.colors").lighten
+local palette = require("sandstorm.palettes").get_palette "latte"
 
 return {
-	name = "cyberpunk-latte-cursorline",
+	name = "sandstorm-latte-cursorline",
 	static = {
 		winhl = {
 			inactive = {

@@ -19,7 +19,7 @@ function M.get()
 		RenderMarkdownError = { fg = C.red },
 	}
 
-	local syntax = require("cyberpunk.groups.syntax").get()
+	local syntax = require("sandstorm.groups.syntax").get()
 	local darkening_percentage = O.transparent_background and U.vary_color({ latte = 0.15 }, 0.28) or 0.095
 
 	for i = 1, 6 do

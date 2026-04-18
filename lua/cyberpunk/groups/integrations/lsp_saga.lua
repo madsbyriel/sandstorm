@@ -114,7 +114,7 @@ end
 
 -- Backwards compatibility
 function M.custom_colors()
-	local C = require("cyberpunk.palettes").get_palette()
+	local C = require("sandstorm.palettes").get_palette()
 	return {
 		normal_bg = C.base,
 		title_bg = C.green,

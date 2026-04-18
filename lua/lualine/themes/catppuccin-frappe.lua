@@ -1,1 +1,1 @@
-return require "cyberpunk.utils.lualine" "frappe"
+return require "sandstorm.utils.lualine" "frappe"

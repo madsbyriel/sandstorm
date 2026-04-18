@@ -1,6 +1,6 @@
 return function(flavour)
-	local C = require("cyberpunk.palettes").get_palette(flavour)
-	local O = require("cyberpunk").options
+	local C = require("sandstorm.palettes").get_palette(flavour)
+	local O = require("sandstorm").options
 
 	local transparent_bg = O.transparent_background and C.none or C.mantle
 

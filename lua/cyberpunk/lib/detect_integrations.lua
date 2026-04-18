@@ -45,7 +45,7 @@ function M.create_integrations_table()
 	local integration_mappings = nil
 
 	do
-		local ok, result = pcall(require, "cyberpunk.utils.integration_mappings")
+		local ok, result = pcall(require, "sandstorm.utils.integration_mappings")
 		assert(ok, result)
 		integration_mappings = result
 	end
@@ -56,7 +56,7 @@ function M.create_integrations_table()
 	)
 
 	local integrations = {}
-	local ctp_defaults = require("cyberpunk").default_options.integrations
+	local ctp_defaults = require("sandstorm").default_options.integrations
 
 	for _, plugin in ipairs(installed_plugins) do
 		if integration_mappings[plugin] ~= nil then

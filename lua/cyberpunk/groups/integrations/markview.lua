@@ -33,7 +33,7 @@ function M.get()
 		[7] = C.mauve,
 	}
 
-	local syntax = require("cyberpunk.groups.syntax").get()
+	local syntax = require("sandstorm.groups.syntax").get()
 
 	for i = 0, 7 do
 		local color = rainbow[i] or syntax["rainbow" .. i].fg

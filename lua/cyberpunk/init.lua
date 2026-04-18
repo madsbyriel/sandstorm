@@ -1,5 +1,5 @@
 local is_vim = vim.fn.has "nvim" ~= 1
-if is_vim then require "cyberpunk.lib.vim" end
+if is_vim then require "sandstorm.lib.vim" end
 
 ---@type Catppuccin
 local M = {
@@ -9,7 +9,7 @@ local M = {
 			light = "latte",
 			dark = "mocha",
 		},
-		compile_path = vim.fn.stdpath "cache" .. "/cyberpunk",
+		compile_path = vim.fn.stdpath "cache" .. "/sandstorm",
 		transparent_background = false,
 		float = {
 			transparent = false,
@@ -132,7 +132,7 @@ function M.compile()
 	local user_flavour = M.flavour
 	for flavour, _ in pairs(M.flavours) do
 		M.flavour = flavour
-		require("cyberpunk.lib." .. (is_vim and "vim." or "") .. "compiler").compile(flavour)
+		require("sandstorm.lib." .. (is_vim and "vim." or "") .. "compiler").compile(flavour)
 	end
 	M.flavour = user_flavour -- Restore user flavour after compile
 end
@@ -155,7 +155,7 @@ local function get_flavour(default)
 		)
 		flavour = nil
 	end
-	return flavour or M.options.flavour or vim.g.cyberpunk_flavour or M.options.background[vim.o.background]
+	return flavour or M.options.flavour or vim.g.sandstorm_flavour or M.options.background[vim.o.background]
 end
 
 local did_setup = false
@@ -172,7 +172,7 @@ function M.load(flavour)
 		M.compile()
 		f = assert(loadfile(compiled_path), "could not load cache")
 	end
-	f(flavour or M.options.flavour or vim.g.cyberpunk_flavour)
+	f(flavour or M.options.flavour or vim.g.sandstorm_flavour)
 end
 
 ---@type fun(user_conf: CatppuccinOptions?)
@@ -184,7 +184,7 @@ function M.setup(user_conf)
 	if user_conf.auto_integrations == true then
 		user_conf.integrations = vim.tbl_deep_extend(
 			"force",
-			require("cyberpunk.lib.detect_integrations").create_integrations_table(),
+			require("sandstorm.lib.detect_integrations").create_integrations_table(),
 			user_conf.integrations or {}
 		)
 	end
@@ -218,7 +218,7 @@ function M.setup(user_conf)
 	-- Get current hash
 	local git_path = debug.getinfo(1).source:sub(2, -24) .. ".git"
 	local git = vim.fn.getftime(git_path) -- 2x faster vim.loop.fs_stat
-	local hash = require("cyberpunk.lib.hashing").hash(user_conf)
+	local hash = require("sandstorm.lib.hashing").hash(user_conf)
 		.. (git == -1 and git_path or git) -- no .git in /nix/store -> cache path
 		.. (vim.o.winblend == 0 and 1 or 0) -- :h winblend
 		.. (vim.o.pumblend == 0 and 1 or 0) -- :h pumblend
@@ -238,7 +238,7 @@ if is_vim then return M end
 
 vim.api.nvim_create_user_command(
 	"Catppuccin",
-	function(inp) vim.api.nvim_command("colorscheme cyberpunk-" .. get_flavour(inp.args)) end,
+	function(inp) vim.api.nvim_command("colorscheme sandstorm-" .. get_flavour(inp.args)) end,
 	{
 		nargs = 1,
 		complete = function(line)
@@ -249,16 +249,16 @@ vim.api.nvim_create_user_command(
 
 vim.api.nvim_create_user_command("CatppuccinCompile", function()
 	for name, _ in pairs(package.loaded) do
-		if name:match "^cyberpunk." then package.loaded[name] = nil end
+		if name:match "^sandstorm." then package.loaded[name] = nil end
 	end
 	M.compile()
 	vim.notify("Catppuccin (info): compiled cache!", vim.log.levels.INFO)
-	vim.cmd.colorscheme "cyberpunk"
+	vim.cmd.colorscheme "sandstorm"
 end, {})
 
-if vim.g.cyberpunk_debug then
+if vim.g.sandstorm_debug then
 	vim.api.nvim_create_autocmd("BufWritePost", {
-		pattern = "*/cyberpunk/*",
+		pattern = "*/sandstorm/*",
 		callback = function()
 			vim.schedule(function() vim.cmd "CatppuccinCompile" end)
 		end,

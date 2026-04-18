@@ -1,12 +1,12 @@
 local M = {}
 
 function M.apply(flavour)
-	flavour = flavour or require("cyberpunk").flavour
+	flavour = flavour or require("sandstorm").flavour
 
 	local _O, _C, _U = O, C, U -- Borrowing global var (setfenv doesn't work with require)
-	O = require("cyberpunk").options
-	C = require("cyberpunk.palettes").get_palette(flavour)
-	U = require "cyberpunk.utils.colors"
+	O = require("sandstorm").options
+	C = require("sandstorm.palettes").get_palette(flavour)
+	U = require "sandstorm.utils.colors"
 
 	C.none = "NONE"
 
@@ -22,9 +22,9 @@ function M.apply(flavour)
 		)
 
 	local theme = {}
-	theme.editor = require("cyberpunk.groups.editor").get()
+	theme.editor = require("sandstorm.groups.editor").get()
 	if vim.fn.has "nvim" == 1 then
-		theme.editor = vim.tbl_deep_extend("force", theme.editor, require("cyberpunk.groups.lsp").get())
+		theme.editor = vim.tbl_deep_extend("force", theme.editor, require("sandstorm.groups.lsp").get())
 	end
 
 	theme.syntax = {}
@@ -35,11 +35,11 @@ function M.apply(flavour)
 	end
 	for i = 1, #syntax_modules do
 		theme.syntax =
-			vim.tbl_deep_extend("force", theme.syntax, require("cyberpunk.groups." .. syntax_modules[i]).get())
+			vim.tbl_deep_extend("force", theme.syntax, require("sandstorm.groups." .. syntax_modules[i]).get())
 	end
 	local final_integrations = {}
 
-	-- https://github.com/cyberpunk/nvim/pull/624
+	-- https://github.com/sandstorm/nvim/pull/624
 	if type(O.integrations.dap) == "table" and O.integrations.dap.enable_ui ~= nil then
 		O.integrations.dap_ui = O.integrations.dap.enable_ui
 		O.integrations.dap.enable_ui = nil
@@ -51,21 +51,21 @@ function M.apply(flavour)
 			if O.integrations[integration].enabled == true then cot = true end
 		else
 			if O.integrations[integration] == true then
-				local default = require("cyberpunk").default_options.integrations[integration]
+				local default = require("sandstorm").default_options.integrations[integration]
 				O.integrations[integration] = type(default) == "table" and default or {}
 				O.integrations[integration].enabled = true
 				cot = true
 			end
 		end
 
-		local ok, result = pcall(require, "cyberpunk.groups.integrations." .. integration)
+		local ok, result = pcall(require, "sandstorm.groups.integrations." .. integration)
 		if ok and result.get and cot then
 			final_integrations = vim.tbl_deep_extend("force", final_integrations, result.get())
 		end
 	end
 
 	theme.integrations = final_integrations -- plugins
-	theme.terminal = require("cyberpunk.groups.terminal").get() -- terminal colors
+	theme.terminal = require("sandstorm.groups.terminal").get() -- terminal colors
 	local user_highlights = O.highlight_overrides
 	if type(user_highlights[flavour]) == "function" then user_highlights[flavour] = user_highlights[flavour](C) end
 	theme.custom_highlights = vim.tbl_deep_extend(

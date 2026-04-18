@@ -1,4 +1,4 @@
-local palette = require("cyberpunk.palettes").get_palette "macchiato"
-local presets = require "cyberpunk.utils.reactive"
+local palette = require("sandstorm.palettes").get_palette "macchiato"
+local presets = require "sandstorm.utils.reactive"
 
-return presets.cursor("cyberpunk-macchiato-cursor", palette)
+return presets.cursor("sandstorm-macchiato-cursor", palette)
