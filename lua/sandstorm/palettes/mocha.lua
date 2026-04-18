@@ -1,5 +1,6 @@
 -- @define-color dark_sand #4e2918;
 -- @define-color light_sand #e1b39d;
+-- @define-color light_sandn #dba48a;
 -- @define-color medium_sand #c3673c;
 -- @define-color yellow #ffff00; # for debugging!
 -- @define-color dark_red #cc0000;
@@ -32,7 +33,7 @@ return {
 	surface1 = "#4e2918", -- line numbers
 	surface0 = "#4e2918", -- also some part of the luabar leftside, rightmost part
 	base = "#e1b39d",  -- background -done
-	mantle = "#4e2918", -- file view background, also text in luabar -done
+	mantle = "#dba48a", -- file view background, also text in luabar -done
 	crust = "#ffff00",
 
 	flamingo = "#f2cdcd",
