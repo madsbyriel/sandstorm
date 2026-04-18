@@ -7,9 +7,9 @@
 -- @define-color teal #008080;
 
 return {
-	blue = "#f2bd1f",   -- method calls, first words in bash fx, directories in treeview
+	blue = "#c3673c",   -- method calls, first words in bash fx, directories in treeview
 	lavender = "#becc00", -- fields, members
-	text = "#efff00",   -- variable names and lots of text
+	text = "#008080",   -- variable names and lots of text
 	maroon = "#8f9900", -- parameter names
 
 	mauve = "#e8174f",  -- keywords
