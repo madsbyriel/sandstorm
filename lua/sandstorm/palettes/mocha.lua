@@ -7,21 +7,21 @@
 -- @define-color teal #008080;
 
 return {
-	blue = "#f2bd1f",   -- method calls, first words in bash fx, directories in treeview
-	lavender = "#becc00", -- fields, members
-	text = "#efff00",   -- variable names and lots of text
-	maroon = "#8f9900", -- parameter names
+	blue = "#cc0000",   -- method calls, first words in bash fx, directories in treeview
+	lavender = "#008080", -- fields, members
+	text = "#c3673c",   -- variable names and lots of text
+	maroon = "#336600", -- parameter names
 
-	mauve = "#e8174f",  -- keywords
-	yellow = "#16e9cd", -- class names, imports
+	mauve = "#4e2918",  -- keywords
+	yellow = "#008080", -- class names, imports
 
 	peach = "#00b8ff",  -- numbers in C#
-	green = "#00ff9f",  -- strings
+	green = "#336600",  -- strings
 
 	rosewater = "#d600ff", -- git titles, ???
 	red = "#d600ff",    -- this keyword?
 	teal = "#94e2d5",
-	sky = "#55ead4",    -- fx assignment in this doc
+	sky = "#cc0000",    -- fx assignment in this doc
 	sapphire = "#74c7ec",
 	subtext1 = "#bac2de",
 	subtext0 = "#a6adc8",
