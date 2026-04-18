@@ -33,7 +33,7 @@ return {
 	surface1 = "#4e2918", -- line numbers
 	surface0 = "#4e2918", -- also some part of the luabar leftside, rightmost part
 	base = "#e1b39d",  -- background -done
-	mantle = "#dba48a", -- file view background, also text in luabar -done
+	mantle = "#d59476", -- file view background, also text in luabar -done
 	crust = "#ffff00",
 
 	flamingo = "#f2cdcd",
