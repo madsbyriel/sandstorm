@@ -1,1 +1,1 @@
-Shameless copy of gruvbox.nvim
+Shameless copy of catppuccin
